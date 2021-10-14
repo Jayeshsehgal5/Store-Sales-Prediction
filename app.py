@@ -1,4 +1,5 @@
 import streamlit as st
+from PIL import Image
 import sklearn
 import joblib
 model=joblib.load("model_sav")
@@ -51,7 +52,8 @@ def Predict(Item_Weight, Item_Visibility,Item_MRP,Item_Fat_Content,
     final_predict=10**pred1
     return(final_predict)
 def start1():
-
+    img1 = Image.open('slide1.jpg')
+    img1 = img1.resize((500, 300))   
     html_temp = """
         <div style="background-color:tomato;padding:10px">
         <h2 style="color:white;text-align:center;">Store Sales Prediction ML App </h2>
